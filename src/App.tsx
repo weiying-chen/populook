@@ -1,39 +1,9 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import './App.css';
 import axios from 'axios';
-
-interface City {
-  rank: number;
-  city: string;
-  state: string;
-  population: string;
-}
-
-interface SearchInputProps {
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-function SearchInput({ value, onChange }: SearchInputProps) {
-  return <input type="text" value={value} onChange={onChange} placeholder="City or State" />;
-}
-
-interface SuggestionsListProps {
-  cities: City[];
-}
-
-function SuggestionsList({ cities }: SuggestionsListProps) {
-  return (
-    <ul>
-      {cities.map(city => (
-        <li key={city.rank}>
-          <span className="name">{city.city}, {city.state}</span>
-          <span className="population">{city.population}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
+import './App.css';
+import { City } from './types';
+import SearchInput from './components/SearchInput';
+import SuggestionsList from './components/SuggestionsList';
 
 function App() {
   const [cities, setCities] = useState<City[]>([]);
