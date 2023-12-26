@@ -1,5 +1,6 @@
 import { City } from '../types';
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
+import { bgColor } from '../styles';
 
 interface SuggestionsListProps {
   cities: City[];
@@ -18,7 +19,7 @@ const style = css`
     background-color: #fff;
     margin: 0;
     padding: 20px;
-    border-top: 2px solid #f0f0f0;
+    border-top: 2px solid ${bgColor};
     font-size: 24px;
   }
 

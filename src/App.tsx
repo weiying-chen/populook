@@ -1,17 +1,18 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import axios from 'axios';
-import { css, Global } from '@emotion/react'
+import { css, Global } from '@emotion/react';
 import { City } from './types';
 import SearchInput from './components/SearchInput';
 import SuggestionsList from './components/SuggestionsList';
+import { fgColor, bgColor } from './styles';
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
   body {
     font-family: "Nunito", sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: ${bgColor};
+    color: ${fgColor};
     margin: 0;
     padding: 0;
   }

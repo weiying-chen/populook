@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
+import { fgColor } from '../styles';
 
 interface SearchInputProps {
   value: string;
@@ -11,7 +12,7 @@ const style = css`
   padding: 20px;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
-  border: 2px solid #333;
+  border: 2px solid ${fgColor};
   box-sizing: border-box;
   border-radius: 0;
 
