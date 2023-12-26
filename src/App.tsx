@@ -59,7 +59,11 @@ function App() {
       <div className="app" css={style}>
         <h1>Populook</h1>
         <SearchInput value={searchTerm} onChange={handleSearch} />
-        {searchTerm && <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>}
+        {searchTerm ? (
+          <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>
+        ) : (
+          <p>Welcome to Populook! Enter a city or state name to find its population.</p>
+        )}
       </div>
     </>
   );
