@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <SearchInput value={searchTerm} onChange={handleSearch} />
-      {searchTerm && <SuggestionsList cities={filteredCities} />}
+      {searchTerm && <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>}
     </div>
   );
 }
