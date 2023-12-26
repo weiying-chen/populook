@@ -17,6 +17,14 @@ const globalStyles = css`
     padding: 0;
   }
 
+  h1 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;  
+  }
+
   #root {
     max-width: 1280px;
     margin: 0 auto;
