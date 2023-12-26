@@ -28,7 +28,8 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <div className="app">
+      <h1>Populook</h1>
       <SearchInput value={searchTerm} onChange={handleSearch} />
       {searchTerm && <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>}
     </div>
