@@ -1,4 +1,4 @@
-# Populook
+# Populook (React)
 
 Search population by city or state.
 
