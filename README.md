@@ -6,6 +6,8 @@ Search population by city or state.
 
 **[Live Demo](https://populook-react.vercel.app/)**
 
+**[Vue Version](https://github.com/weiying-chen/populook-vue)**
+
 ## Installation
 
 ```bash
