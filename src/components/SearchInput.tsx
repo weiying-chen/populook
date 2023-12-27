@@ -8,8 +8,10 @@ interface SearchInputProps {
 }
 
 const style = css`
+  color: ${fgColor};
+  background: #fff;
   width: 100%;
-  padding: 20px;
+  padding: 1em;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   border: 2px solid ${fgColor};

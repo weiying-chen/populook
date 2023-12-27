@@ -5,6 +5,7 @@ import { City } from './types';
 import SearchInput from './components/SearchInput';
 import SuggestionsList from './components/SuggestionsList';
 import { fgColor, bgColor } from './styles';
+import logo from './assets/logo.svg'
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
@@ -17,8 +18,10 @@ const globalStyles = css`
     padding: 0;
   }
 
-  h1 {
-    margin-top: 0;
+  img {
+    width: 289px;
+    height: 69px;
+    margin-bottom: 1em;
   }
 
   p {
@@ -34,6 +37,9 @@ const globalStyles = css`
 `
 
 const style = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   margin: auto;
   padding: 20px;
@@ -65,7 +71,7 @@ function App() {
     <>
       <Global styles={globalStyles}/>
       <div className="app" css={style}>
-        <h1>Populook</h1>
+        <img src={logo} alt="Populook" />
         <SearchInput value={searchTerm} onChange={handleSearch} />
         {searchTerm ? (
           <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>

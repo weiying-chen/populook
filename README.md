@@ -2,9 +2,9 @@
 
 Search population by city or state.
 
-![](https://github.com/weiying-chen/populook/blob/main/screenshot.png)
+![](https://github.com/weiying-chen/populook-react/blob/main/screenshot.png)
 
-**[Live Demo](https://populook.vercel.app/)**
+**[Live Demo](https://populook-react.vercel.app/)**
 
 ## Installation
 

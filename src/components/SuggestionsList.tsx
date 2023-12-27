@@ -23,17 +23,19 @@ const style = css`
     font-size: 24px;
   }
 
+  .highlight {
+    background: #ffdc8a;
+  }
+
   .name {
     font-weight: bold;
+    text-align: left;
   }
 
   .population {
+    margin-left: 1em;
     font-size: 18px;
     color: #666;
-  }
-
-  .highlight {
-    background: #ffdc8a;
   }
 
   /* Mobile styles */
@@ -47,6 +49,10 @@ const style = css`
     .population {
       text-align: center;
       width: 100%;
+    }
+
+    .population {
+      margin-left: 0;
     }
   }
 `
