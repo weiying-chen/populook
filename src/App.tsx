@@ -4,37 +4,8 @@ import { City } from './types';
 import useFetch from './hooks/useFetch';
 import SearchInput from './components/SearchInput';
 import SuggestionsList from './components/SuggestionsList';
-import { fgColor, bgColor } from './styles';
+import { globalStyles } from './styles';
 import logo from './assets/logo.svg';
-
-const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
-
-  body {
-    font-family: "Nunito", sans-serif;
-    background-color: ${bgColor};
-    color: ${fgColor};
-    margin: 0;
-    padding: 0;
-  }
-
-  img {
-    width: 289px;
-    height: 69px;
-    margin-bottom: 1em;
-  }
-
-  p {
-    margin-bottom: 0;  
-  }
-
-  #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }  
-`;
 
 const style = css`
   display: flex;
@@ -51,7 +22,7 @@ const style = css`
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  const { data: cities, error } = useFetch<City[]>('/data.json');
+  const { data: cities, error } = useFetch<City>('/data.json');
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);

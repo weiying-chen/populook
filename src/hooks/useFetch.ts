@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useFetch = <T>(dataUrl: string) => {
-  const [data, setData] = useState<T>([] as T);
+  const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const useFetch = <T>(dataUrl: string) => {
           setData(JSON.parse(cachedData));
           setError(null);
         } else {
-          const result = await axios<T>(dataUrl);
+          const result = await axios(dataUrl);
 
           if (result.status === 200 && Array.isArray(result.data)) {
             setData(result.data);
