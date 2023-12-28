@@ -1,11 +1,11 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+import { useState, ChangeEvent } from 'react';
 import { css, Global } from '@emotion/react';
 import { City } from './types';
+import useFetch from './hooks/useFetch';
 import SearchInput from './components/SearchInput';
 import SuggestionsList from './components/SuggestionsList';
 import { fgColor, bgColor } from './styles';
-import logo from './assets/logo.svg'
+import logo from './assets/logo.svg';
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
@@ -34,7 +34,7 @@ const globalStyles = css`
     padding: 2rem;
     text-align: center;
   }  
-`
+`;
 
 const style = css`
   display: flex;
@@ -43,20 +43,15 @@ const style = css`
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-`
+
+  .error {
+    color: #ff0000;
+  }
+`;
 
 function App() {
-  const [cities, setCities] = useState<City[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios('https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json');
-      setCities(result.data);
-    };
-
-    fetchData();
-  }, []);
+  const { data: cities, error } = useFetch<City[]>('/data.json');
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -73,7 +68,9 @@ function App() {
       <div className="app" css={style}>
         <img src={logo} alt="Populook" />
         <SearchInput value={searchTerm} onChange={handleSearch} />
-        {searchTerm ? (
+        {error ? (
+          <p className="error">{error}</p>
+        ) : searchTerm ? (
           <SuggestionsList cities={filteredCities} searchTerm={searchTerm}/>
         ) : (
           <p>Welcome to Populook! Enter a city or state name to find its population.</p>
